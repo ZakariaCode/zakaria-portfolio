@@ -43,8 +43,7 @@ const Contact = () => {
           <FaEnvelope className="text-sky-500 w-5 h-5" /> 
           <a href={`mailto:${CONTACT.email}`} className="text-sky-500-400 hover:underline">{CONTACT.email}</a>
         </motion.p>
-
-        {/* Bouton de téléchargement du CV */}
+        
         <motion.a
           href="/Zakaria_CV.pdf" // Remplace par le chemin réel de ton CV
           download="Zakaria_CV"
