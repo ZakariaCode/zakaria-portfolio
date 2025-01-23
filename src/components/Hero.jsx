@@ -14,17 +14,18 @@ const container = (delay) => ({
     },
   },
 });
+
 const Hero = () => {
   return (
     <div className="border-b border-neutral-900 pb-4 lg:mb-35">
-      <div className="flex flex-wrap">
-        <div className="w-full lg:w-1/2">
+      <div className="flex flex-wrap items-center justify-between h-full">
+        <div className="w-full lg:w-1/2 flex items-center">
           <div className="flex flex-col items-center lg:items-start">
             <motion.h1
               variants={container(0)}
               initial="hidden"
               animate="visible"
-              className="pb-16 text-6xl font-thin tracking-tight lg:mt-16 lg:text-6xl"
+              className="text-5xl lg:text-6xl font-serif font-semibold leading-tight mb-6"
             >
               El Hajjam Zakaria
             </motion.h1>
@@ -32,30 +33,29 @@ const Hero = () => {
               variants={container(0.5)}
               initial="hidden"
               animate="visible"
-              className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-3xl tracking-tight text-transparent"
+              className="text-3xl font-medium text-transparent bg-gradient-to-r from-pink-400 via-slate-600 to-purple-600 bg-clip-text tracking-tight"
             >
-             Développeur Full Stack
+              ÉLÈVE INGÉNIEUR EN INFORMATIQUE
             </motion.span>
             <motion.p
               variants={container(1)}
               initial="hidden"
               animate="visible"
-              className="my-2 max-w-xl text-xl py-6 font-light tracking-tighter"
+              className="mt-4 max-w-3xl text-xl font-light leading-relaxed tracking-tighter"
             >
               {HERO_CONTENT}
             </motion.p>
           </div>
         </div>
-        <div className="w-full lg:w-1/2  lg:p-8">
-          <div className="flex justigy-center">
-            <motion.img
-              initial={{ x: 100, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 1, duration: 1.2 }}
-              src={profilPic}
-              alt="kevin Rush"
-            ></motion.img>
-          </div>
+        <div className="w-full lg:w-1/2 lg:p-8 flex items-center justify-center">
+          <motion.img
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 1, duration: 1.2 }}
+            src={profilPic}
+            alt="zakaria"
+            className="rounded-full max-w-[400px] h-auto"
+          />
         </div>
       </div>
     </div>
