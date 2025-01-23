@@ -5,7 +5,7 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaDownload } from 'react-icons/
 
 const Contact = () => {
   return (
-    <div className="border-b border-neutral-700 pb-20 bg-neutral-900">
+    <div className="border-b border-neutral-700 pb-20 ">
       <motion.h1
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}
