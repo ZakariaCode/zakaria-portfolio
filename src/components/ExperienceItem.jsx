@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const ExperienceItem = ({ year, role, company, description, technologies }) => {
-  // Diviser la description en points (en utilisant le séparateur `.`) et nettoyer les espaces
   const descriptionPoints = description
     .split(".")
     .map((point) => point.trim())
