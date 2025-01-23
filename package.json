@@ -1,5 +1,6 @@
 {
   "name": "my-project",
+  "homepage": "https://zakariacode.github.io/zakaria-portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
