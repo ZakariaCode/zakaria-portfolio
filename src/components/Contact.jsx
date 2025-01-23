@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaDownload } from 'react-icons/fa'; 
 
 const Contact = () => {
+
   return (
     <div className="border-b border-neutral-700 pb-20 ">
       <motion.h1
@@ -45,7 +46,7 @@ const Contact = () => {
         </motion.p>
         
         <motion.a
-          href="/Zakaria_CV.pdf" // Remplace par le chemin réel de ton CV
+         href={`${import.meta.env.VITE_PUBLIC_URL}`} // Remplace par le chemin réel de ton CV
           download="Zakaria_CV"
           className="inline-block mt-6 px-6 py-2 bg-sky-500 text-white rounded-lg text-lg font-medium shadow-md hover:bg-sky-500-dark transition-colors duration-300"
         >
