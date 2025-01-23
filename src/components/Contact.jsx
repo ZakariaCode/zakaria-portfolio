@@ -1,7 +1,7 @@
 import React from 'react';
 import { CONTACT } from '../constants';
 import { motion } from 'framer-motion';
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaDownload } from 'react-icons/fa'; // Import des icônes
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaDownload } from 'react-icons/fa'; 
 
 const Contact = () => {
   return (
