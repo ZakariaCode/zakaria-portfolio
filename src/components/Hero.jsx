@@ -14,7 +14,7 @@ const splitText = (text) => {
 // Fonction d'animation de chaque lettre
 const letterAnimation = (index, textIndex) => ({
   opacity: textIndex >= index ? 1 : 0,
-  scale: textIndex >= index ? 1 : 0.95, // Effet de zoom subtile
+  scale: textIndex >= index ? 1 : 0.98, // Effet de zoom subtile
   transition: {
     delay: index * 0.1, // Temps d'attente pour chaque lettre
     duration: 0.5, // Durée de l'animation pour chaque lettre
