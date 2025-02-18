@@ -19,7 +19,7 @@ const Navbar = () => {
         >
           <FaLinkedin />
         </a>
-      <a href="https://github.com/zakaria8elhajjam"
+      <a href="https://github.com/ZakariaCode"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="GitHub"
