@@ -63,7 +63,7 @@ const Projects = () => {
   };
 
   return (
-    <div className="pb-16">
+    <div className="border-b border-neutral-900 pb-16">
        <motion.h1
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}

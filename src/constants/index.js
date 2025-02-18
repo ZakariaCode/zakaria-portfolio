@@ -18,6 +18,17 @@ import r2 from "../assets/projects/r2.png";
 import r3 from "../assets/projects/r3.png";
 import r4 from "../assets/projects/r4.png";
 import r5 from "../assets/projects/r5.png";
+import Acceuil from "../assets/projects/Acceuil.png";
+import dark from "../assets/projects/dark.png";
+import Aboutus from "../assets/projects/AboutUs.png";
+import AllCars from "../assets/projects/AllCars.png";
+import Search from "../assets/projects/Search.png";
+import FullSignIn from "../assets/projects/FullSignIn.png";
+import Reservation from "../assets/projects/Reservation.png";
+import Paiement from "../assets/projects/Paiement.png";
+import Avis from "../assets/projects/Avis.png";
+import VehiculesAdmin from "../assets/projects/VehiculesAdmin.png";
+
 export const HERO_CONTENT = `En tant qu'élève ingénieur à l'École Nationale des Sciences Appliquées de Khouribga, je mets en œuvre une expertise technique approfondie pour concevoir des applications performantes, esthétiques et sécurisées. Fort d'une année d'expérience professionnelle, j'ai acquis une maîtrise des technologies front-end telles que React, Next.js et Laravel, ainsi que des compétences solides en back-end avec Node.js, Spring Boot, et en gestion de bases de données comme MySQL, PostgreSQL et MongoDB. J'ai également une expérience avec des outils de test tels que Postman et des outils de collaboration d'équipe comme Jira, ainsi que des plateformes de partage de code comme GitHub. Mon approche est marquée par une volonté constante d'innovation et d'apprentissage, et je m'efforce de proposer des solutions techniques qui répondent aux exigences élevées tout en améliorant l'expérience utilisateur. Mon objectif est de contribuer efficacement à des projets ambitieux, en utilisant mes compétences pour générer des résultats tangibles et soutenir le développement des entreprises.`;
 
 export const ABOUT_TEXT = `Passionné par le développement web, je m'efforce de combiner ma créativité et mes compétences techniques pour concevoir des expériences numériques à la fois efficaces et esthétiques. J'ai acquis une solide compréhension des environnements Mac et Windows, ce qui me permet d'adapter mes solutions à différents systèmes et besoins. Mon parcours est marqué par une curiosité constante pour les technologies, qui m'a poussé à développer une carrière axée sur l'apprentissage continu et la recherche de nouveaux défis. Travaillant facilement en équipe, je suis toujours en quête de solutions innovantes et de haute qualité. En dehors de mon travail, je m'investis activement dans l'exploration des dernières tendances et technologies pour enrichir ma pratique.`;
@@ -72,6 +83,21 @@ export const PROJECTS = [
     technologies: ["JAVA", "MYSQL", "SWING"],
     githubLink: "https://github.com/ZakariaCode/GestionProjetsTaches.git",
   },
+  {
+    title: "Application Web de Gestion de Location de Voitures",
+    image: [Acceuil, dark, Aboutus, AllCars, Search, FullSignIn, Reservation, Paiement, Avis, VehiculesAdmin],
+    description:
+      "Une application web permettant de gérer la location de véhicules, les réservations et la gestion des clients. Elle offre une interface fluide pour les utilisateurs, avec un système de réservation sécurisé via PayPal et une interface administrateur pour la gestion des véhicules et des statistiques.",
+    technologies: [
+      "React",
+      "Spring Boot",
+      "Tailwind CSS",
+      "JWT",
+      "MySQL"
+    ],
+    githubLink: "https://github.com/ZakariaCode/CarBook.git",
+  }
+  
 ];
 export const EXPERIENCES = [
   {

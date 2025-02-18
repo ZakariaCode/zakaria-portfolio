@@ -6,7 +6,7 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaDownload } from 'react-icons/
 const Contact = () => {
 
   return (
-    <div className="border-b border-neutral-700 pb-20 ">
+    <div className="border-b border-neutral-900 pb-20 ">
       <motion.h1
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}
@@ -48,9 +48,9 @@ const Contact = () => {
         <motion.a
          href={import.meta.env.BASE_URL + 'Zakaria_CV.pdf'} // Remplace par le chemin réel de ton CV
           download="Zakaria_CV"
-          className="inline-block mt-6 px-6 py-2 bg-sky-500 text-white rounded-lg text-lg font-medium shadow-md hover:bg-sky-500-dark transition-colors duration-300"
+          className="inline-block mt-6 px-6 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-lg text-lg font-medium shadow-md hover:bg-sky-500-dark transition-colors duration-300"
         >
-          <FaDownload className="inline-block mr-2" /> Télécharger mon CV
+          <FaDownload className="inline-block mr-2" /> Download mon CV
         </motion.a>
       </div>
     </div>
