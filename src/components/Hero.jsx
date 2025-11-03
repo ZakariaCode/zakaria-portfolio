@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { HERO_CONTENT } from "../constants";
-import profilPic from "../assets/zakariaProfile.png";
+// import { HERO_CONTENT } from "../constants";
+import profilPic from "../assets/zakariaProfile.jpg";
 import { motion } from "framer-motion";
+import {FaDownload} from "react-icons/fa";
 
 // Fonction qui découpe le texte en lettres individuelles
 const splitText = (text) => {
@@ -61,26 +62,56 @@ const Hero = () => {
   }, [isTyping, textIndex]);
 
   return (
-    <div className="border-b border-neutral-900 pb-4 lg:mb-35">
-      <div className="flex flex-wrap items-center justify-between h-full">
-        <div className="w-full lg:w-1/2 flex items-center">
+    <div className="relative pb-4 border-b border-neutral-800/50 lg:mb-35">
+      {/* Effet de particules flottantes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 rounded-full bg-cyan-400/30"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -30, 0],
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="relative z-10 flex flex-wrap items-center justify-between h-full">
+        <div className="flex items-center w-full lg:w-1/2">
           <div className="flex flex-col items-center lg:items-start">
-            {/* Animation du nom avec effet de lettre par lettre */}
+            {/* Animation du nom avec effet de lettre par lettre amélioré */}
             <motion.h1
               variants={container(0)}
               initial="hidden"
               animate="visible"
-              className="text-5xl lg:text-5xl space-x-1 font-serif font-semibold leading-tight mb-6 text-shadow-md"
+              className="mb-12 space-x-1 font-serif text-5xl font-bold leading-tight text-white lg:text-6xl"
+              style={{
+                textShadow: '0 0 30px rgba(59, 130, 246, 0.3)',
+              }}
             >
               {letters.map((letter, index) => (
                 <motion.span
                   key={letter.id}
-                  initial={{ opacity: 0, scale: 0.95 }} // Effet initial
-                  animate={letterAnimation(index, textIndex)} // Animation avec easing et scaling
+                  initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                  animate={letterAnimation(index, textIndex)}
                   transition={{
-                    delay: index * 0.1,
-                    duration: 0.5,
-                    ease: "easeInOut", // Utilisation de "easeInOut" prédéfini
+                    delay: index * 0.08,
+                    duration: 0.6,
+                    ease: "easeOut",
+                  }}
+                  className="inline-block text-transparent bg-gradient-to-r from-white via-cyan-200 to-blue-300 bg-clip-text"
+                  style={{
+                    textShadow: '0 0 20px rgba(59, 130, 246, 0.4)',
                   }}
                 >
                   {letter.letter}
@@ -88,62 +119,139 @@ const Hero = () => {
               ))}
             </motion.h1>
 
-            <motion.span
+            <motion.div
               variants={container(0.5)}
               initial="hidden"
               animate={{
                 opacity: 1,
-                transform: "translateY(0)", // Animation de déplacement vertical
+                transform: "translateY(0)",
               }}
               transition={{
-                delay: 0.5,
-                duration: 1,
-                ease: "easeInOut", // Courbe d'accélération prédéfinie
+                delay: 0.8,
+                duration: 1.2,
+                ease: "easeOut",
               }}
-              className="text-3xl font-medium text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text tracking-tight"
+              className="relative "
             >
-              ÉLÈVE INGÉNIEUR EN INFORMATIQUE
-            </motion.span>
+              <span className="text-2xl font-medium tracking-tight text-transparent lg:text-3xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text">
+                FUTUR INGÉNIEUR EN DÉVELOPPEMENT ET QUALITÉ LOGICIELLE
+              </span>
+              {/* Effet de brillance */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                animate={{
+                  x: ['-100%', '100%'],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  repeatDelay: 2,
+                }}
+                style={{
+                  background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)',
+                }}
+              />
+            </motion.div>
 
-            <motion.p
-              variants={container(1)}
-              initial="hidden"
-              animate="visible"
-              className="mt-4 max-w-3xl text-xl font-light leading-relaxed tracking-tighter"
+            <motion.a
+              href={import.meta.env.BASE_URL + "Cv_ElHajjamZakaria.pdf"}
+              download="Cv_ElHajjamZakaria"
+              className="relative inline-block px-10 py-5 mt-8 overflow-hidden text-lg font-bold text-white transition-all duration-500 shadow-2xl group rounded-2xl"
+              whileHover={{ 
+                scale: 1.08,
+                y: -5,
+                boxShadow: "0 20px 40px rgba(6, 182, 212, 0.4)"
+              }}
+              whileTap={{ scale: 0.95 }}
             >
-              {HERO_CONTENT}
-            </motion.p>
+              {/* Background gradient principal */}
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600" />
+              
+              {/* Background gradient animé au hover */}
+              <div className="absolute inset-0 transition-opacity duration-500 opacity-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 group-hover:opacity-100" />
+              
+              {/* Effet de brillance qui traverse le bouton */}
+              <div className="absolute inset-0 transition-all duration-700 opacity-0 bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:opacity-100 group-hover:translate-x-full" />
+              
+              {/* Bordure animée */}
+              <div className="absolute inset-0 transition-opacity duration-500 opacity-0 rounded-2xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 group-hover:opacity-100" 
+                   style={{ padding: '2px' }}>
+                <div className="w-full h-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 rounded-2xl" />
+              </div>
+              
+              {/* Contenu du bouton */}
+              <div className="relative z-10 flex items-center justify-center gap-4">
+              
+                <span className="tracking-wide">Download mon CV</span>
+                <motion.div
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ 
+                    duration: 1.5,
+                    repeat: Infinity,
+                    repeatDelay: 2
+                  }}
+                  className="text-xl"
+                >
+                  ↓
+                </motion.div>
+              </div>
+              
+              {/* Effet de particules autour du bouton */}
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {[...Array(6)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute w-1 h-1 rounded-full bg-white/60"
+                    style={{
+                      left: `${Math.random() * 100}%`,
+                      top: `${Math.random() * 100}%`,
+                    }}
+                    animate={{
+                      y: [0, -20, 0],
+                      opacity: [0, 1, 0],
+                      scale: [0, 1, 0],
+                    }}
+                    transition={{
+                      duration: 2 + Math.random() * 2,
+                      repeat: Infinity,
+                      delay: Math.random() * 2,
+                    }}
+                  />
+                ))}
+              </div>
+            </motion.a>
           </div>
         </div>
 
-        <div className="w-full lg:w-1/2 lg:p-8 flex items-center justify-center">
-        <motion.img
-            initial={{ opacity: 0, scale: 0.95 }}
+        <div className="flex items-center justify-center w-full lg:w-1/2 lg:p-8">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1.5, duration: 1.2, ease: "easeInOut" }} // Utilisation de "easeInOut"
-            src={profilPic}
-            alt="zakaria"
-            className="rounded-full max-w-[400px] h-auto"
-          />
+            transition={{ delay: 1.5, duration: 0.8, ease: "easeOut" }}
+            className="relative group"
+          >
+            {/* Fond avec effet de halo */}
+            <div className="absolute inset-0 scale-125 rounded-full bg-gradient-to-r from-cyan-400/30 via-blue-500/30 to-purple-500/30 blur-3xl" />
+            
+            {/* Image de profil circulaire agrandie */}
+            <div className="relative z-10 overflow-hidden rounded-full shadow-2xl w-96 h-96">
+              <img
+                src={profilPic}
+                alt="zakaria"
+                className="object-cover w-full h-full"
+              />
+              
+              {/* Overlay avec gradient radial */}
+              <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-black/20" />
+            </div>
+            
+            {/* Décoration en anneau */}
+            <div className="absolute inset-0 scale-110 border-2 rounded-full border-cyan-400/40" />
+            <div className="absolute inset-0 border rounded-full border-purple-400/30 scale-120" />
+          </motion.div>
         </div>
       </div>
 
-      {/* Curseur clignotant en blanc avec effet de zoom */}
-      {isTyping && (
-        <motion.div
-          animate={{
-            opacity: [1, 0, 1],
-            scale: [1, 1.1, 1], // Légère animation de zoom pour attirer l'attention
-          }}
-          transition={{
-            repeat: Infinity,
-            repeatType: "loop",
-            duration: 0.7,
-            ease: "easeInOut", // Utilisation de "easeInOut"
-          }}
-          className="inline-block w-2 h-8 bg-white ml-2"
-        />
-      )}
     </div>
   );
 };

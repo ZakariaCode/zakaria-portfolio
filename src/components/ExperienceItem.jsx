@@ -1,11 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
+import PropTypes from 'prop-types';
 
 const ExperienceItem = ({ year, role, company, description, technologies }) => {
-  const descriptionPoints = description
-    .split(".")
-    .map((point) => point.trim())
-    .filter(Boolean);
+  // Accept either an array of points or a string (multi-line, bullets or sentences)
+  const descriptionPoints = Array.isArray(description)
+    ? description
+    : String(description)
+        .split(/\r?\n|\u2022|\u2023|•|\.|\t/) // split on newlines, bullet chars or periods
+        .map((point) => point.trim())
+        .filter(Boolean);
 
   return (
     <div className="mb-8 flex flex-wrap lg:justify-center">
@@ -29,12 +33,16 @@ const ExperienceItem = ({ year, role, company, description, technologies }) => {
             <span className="text-sm text-purple-100">{company}</span>
           </i>
         </h6>
-        {/* Affichage de chaque point de la description dans un paragraphe */}
-        {descriptionPoints.map((point, index) => (
-          <p key={index} className="mb-4 text-neutral-400">
-            {point}.
-          </p>
-        ))}
+        {/* Affichage sémantique des points de la description */}
+        {descriptionPoints.length > 0 && (
+          <ul className="mb-4 list-disc pl-5 text-neutral-400">
+            {descriptionPoints.map((point, index) => (
+              <li key={index} className="mb-2">
+                {point}
+              </li>
+            ))}
+          </ul>
+        )}
 
         {/* Affichage des technologies */}
         {technologies && (
@@ -50,3 +58,15 @@ const ExperienceItem = ({ year, role, company, description, technologies }) => {
 };
 
 export default ExperienceItem;
+
+// Prop types for better linting and documentation
+ExperienceItem.propTypes = {
+  year: PropTypes.string,
+  role: PropTypes.string,
+  company: PropTypes.string,
+  description: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
+  technologies: PropTypes.arrayOf(PropTypes.string),
+};
